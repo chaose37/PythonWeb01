@@ -5,5 +5,5 @@ from myApp01.models import Board
 from myApp01.models import User
 
 
-admin.register(Board)
-admin.register(User)
+admin.site.register(Board)
+admin.site.register(User)
