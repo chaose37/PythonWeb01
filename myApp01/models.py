@@ -12,6 +12,8 @@ class User(models.Model):
     address = models.TextField()
     createDate = models.DateTimeField(auto_now_add=True)
     lastLogingDate = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.id
 
 
 class Board(models.Model) :
@@ -23,4 +25,5 @@ class Board(models.Model) :
     content = models.TextField()
     createDate = models.DateTimeField(auto_now_add=True)
     updateDate = models.DateTimeField(auto_now_add=True)
-
+    def __str__(self):
+        self.title

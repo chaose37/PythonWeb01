@@ -20,4 +20,6 @@ from myApp01 import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
+    url(r'^board/json', views.board_Json),
+    url(r'^board', views.board_table),
 ]

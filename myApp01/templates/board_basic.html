@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>게시판</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+        }
+        table
+        {
+            margin: auto;
+        }
+        .b_title
+        {
+            width: 40%;
+        }
+    .main
+    {
+       text-align: center;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="main">
+<h3>게시판 테이블</h3>
+<table>
+    <tr>
+        <th>글번호</th>
+        <th class="b_title" >글제목</th>
+        <th>글쓴이</th>
+        <th>등록일</th>
+        <th>수정일</th>
+    </tr>
+
+    {% for board in boardList %}
+        <tr>
+        <td>{{ board.bno }}</td>
+        <td>{{ board.title }}</td>
+        <td>{{ board.id }}</td>
+        <td>{{ board.createDate }}</td>
+        <td>{{ board.updateDate }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>
