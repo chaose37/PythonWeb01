@@ -21,5 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
     url(r'^board/json', views.board_Json),
+    url(r'^board/write', views.createBoard),
     url(r'^board', views.board_table),
 ]
+

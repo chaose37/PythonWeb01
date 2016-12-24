@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
-from .models import Board,User
+from .models import *
+from .forms import *
+
 
 def index(req):
     msg = "My Message"
@@ -9,6 +11,7 @@ def index(req):
 
 def board_table(req):
     return render(req,"board_basic.html",{'boardList':Board.objects.all()})
+
 
 def board_Json(req):
     board_List = Board.objects.all();
@@ -23,4 +26,13 @@ def board_Json(req):
         })
     return JsonResponse(jsonList,safe=False)
 
-# Create your views here.
+def createBoard(req):
+    if req.method=="POST":
+        form = writeForm(req.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/board")
+    else:
+        form = writeForm()
+
+    return render(req, "write_form.html",{"form":form})
